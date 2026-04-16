@@ -1,0 +1,6 @@
+asyncio
+simple-pid==2.0.1
+pytest
+pytest-cov
+pytest-homeassistant-custom-component
+syrupy

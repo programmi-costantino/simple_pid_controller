@@ -1,0 +1,100 @@
+{
+  "title": "Simple PID Controller",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configura Simple PID Controller",
+        "description": "Inserisci un nome e scegli il sensore per guidare il ciclo PID.",
+        "data": {
+          "name": "Nome",
+          "sensor_entity_id": "Entità Sensore",
+          "input_range_min": "Intervallo di Input Minimo",
+          "input_range_max": "Intervallo di Input Massimo",
+          "output_range_min": "Intervallo di Output Minimo",
+          "output_range_max": "Intervallo di Output Massimo"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Solo un'istanza con questo nome è consentita."
+    },
+    "error": {
+      "already_configured": "Esiste già una configurazione con questo nome.",
+	  "input_range_min_max": "Il minimo deve essere inferiore al massimo.",
+	  "output_range_min_max": "Il minimo deve essere inferiore al massimo."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Modifica le opzioni del PID Controller",
+        "description": "Modifica l'entità del sensore e l'intervallo utilizzato dal controller.",
+        "data": {
+          "sensor_entity_id": "Entità Sensore",
+          "input_range_min": "Intervallo di Input Minimo",
+          "input_range_max": "Intervallo di Input Massimo",
+          "output_range_min": "Intervallo di Output Minimo",
+          "output_range_max": "Intervallo di Output Massimo"
+        }
+      }
+    },
+    "error": {
+	  "range_min_max": "Il minimo deve essere inferiore al massimo."
+    }
+  },
+  "entity": {
+    "number": {
+	  "kp": {
+		"name": "Kp"
+	  },
+	  "ki": {
+		"name": "Ki"
+	  },
+	  "kd": {
+		"name": "Kd"
+	  },
+	  "setpoint": {
+		"name": "Setpoint"
+	  },
+	  "output": {
+		"name": "Uscita"
+	  }
+    },
+    "switch": {
+        "auto_mode": {
+			"name": "Modalità Automatica"
+		},
+        "proportional_on_measurement": {
+			"name": "Proporzionale sulla Misurazione"
+		},
+        "windup_protection": {
+			"name": "Protezione Windup"
+		},
+    "enable_inverted_output": {
+      "name": "Abilita Output Invertito"
+    }
+    },
+    "sensor": {
+        "current_value": {
+			"name": "Valore Corrente"
+		}
+    }
+  }
+  ,
+  "services": {
+    "set_output": {
+      "name": "Imposta uscita PID",
+      "description": "Imposta o reimposta l'uscita del controller PID.",
+      "fields": {
+        "preset": {
+          "name": "Preset",
+          "description": "Usa un'uscita preimpostata: zero_start, last_known_value o startup_value."
+        },
+        "value": {
+          "name": "Valore",
+          "description": "Valore di uscita manuale compreso tra output_min e output_max."
+        }
+      }
+    }
+  }
+}

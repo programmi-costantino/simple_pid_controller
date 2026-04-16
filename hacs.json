@@ -1,0 +1,6 @@
+{
+  "name": "Simple PID Controller (Fork by Costantino)",
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "simple_pid_controller.zip"
+}

@@ -1,0 +1,103 @@
+{
+  "title": "Simple PID Controller",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Simple PID Controller",
+        "description": "Enter a name and choose the sensor to drive the PID loop.",
+        "data": {
+          "name": "Name",
+          "sensor_entity_id": "Sensor Entity",
+          "input_range_min": "Minimum Input Range",
+          "input_range_max": "Maximum Input Range",
+          "output_range_min": "Minimum Output Range",
+          "output_range_max": "Maximum Output Range"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single instance with this name is allowed."
+    },
+    "error": {
+      "already_configured": "A configuration with this name already exists.",
+	  "input_range_min_max": "Minimum must be lower than maximum.",
+	  "output_range_min_max": "Minimum must be lower than maximum."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Edit PID Controller Options",
+        "description": "Modify the sensor entity and range used by the controller.",
+        "data": {
+          "sensor_entity_id": "Sensor Entity",
+          "input_range_min": "Minimum Input Range",
+          "input_range_max": "Maximum Input Range",
+          "output_range_min": "Minimum Output Range",
+          "output_range_max": "Maximum Output Range"
+        }
+      }
+    },
+    "error": {
+	  "range_min_max": "Minimum must be lower than maximum."
+    }
+  },
+  "entity": {
+    "number": {
+	  "kp": {
+		"name": "Kp"
+	  },
+	  "ki": {
+		"name": "Ki"
+	  },
+	  "kd": {
+		"name": "Kd"
+	  },
+	  "setpoint": {
+		"name": "Setpoint"
+	  },
+	  "output": {
+		"name": "Output"
+	  }
+    },
+    "switch": {
+        "auto_mode": {
+			"name": "Auto Mode"
+		},
+        "proportional_on_measurement": {
+			"name": "Proportional on Measurement"
+		},
+        "windup_protection": {
+			"name": "Windup Protection"
+		},
+        "enable_inverted_output": {
+			"name": "Enable Inverted Output"
+		}
+    },
+    "sensor": {
+        "current_value": {
+			"name": "Current Value"
+		},
+        "inverted_output": {
+			"name": "Inverted Output"
+		}
+    }
+  }
+  ,
+  "services": {
+    "set_output": {
+      "name": "Set PID output",
+      "description": "Set or reset the PID controller output.",
+      "fields": {
+        "preset": {
+          "name": "Preset",
+          "description": "Use a preset output: zero_start, last_known_value or startup_value."
+        },
+        "value": {
+          "name": "Value",
+          "description": "Manual output value between output_min and output_max."
+        }
+      }
+    }
+  }
+}
