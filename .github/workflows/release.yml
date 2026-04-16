@@ -10,7 +10,8 @@ permissions:
 jobs:
   release:
     name: Build ZIP and create GitHub Release
-    runs-on: [self-hosted, Linux, X64, lbl-gioia]
+    # MODIFICATO: puntiamo al sistema autoscale
+    runs-on: arc-runner-set 
     steps:
       - uses: actions/checkout@v6
 
@@ -22,6 +23,8 @@ jobs:
 
       - name: Create release ZIP
         run: |
+          # Installiamo zip se non presente (nei container è spesso assente)
+          sudo apt-get update && sudo apt-get install -y zip
           cd custom_components/simple_pid_controller/
           zip ../../simple_pid_controller.zip -r ./
 
