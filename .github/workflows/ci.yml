@@ -18,7 +18,8 @@ permissions:
 jobs:
   lint:
     name: Lint & pre-commit
-    runs-on: [self-hosted, Linux, X64, lbl-gioia]
+    #runs-on: [self-hosted, Linux, X64, lbl-gioia]
+    runs-on: arc-runner-set
     steps:
       - uses: actions/checkout@v6
 
